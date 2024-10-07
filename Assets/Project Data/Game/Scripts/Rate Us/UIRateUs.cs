@@ -38,7 +38,7 @@ namespace Watermelon
         public override void PlayShowAnimation()
         {
             // Disable joystick
-            UIController.GetPage<UIGame>().Joystick.ResetControl();
+            // UIController.GetPage<UIGame>().Joystick.ResetControl();
 
             // Reset positions
             panel.anchoredPosition = Vector2.down * 1500;

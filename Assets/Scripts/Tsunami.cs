@@ -15,8 +15,8 @@ public class Tsunami : MonoBehaviour, IDealDmgToPlayer
 
     private void Update()
     {
-        if(!GameManger.Instance.CheckGameState(GameManger.GameState.GameCountDownToStart)
-        && !GameManger.Instance.CheckGameState(GameManger.GameState.GameFinished)) 
+        if(!GameManager.Instance.CheckGameState(GameManager.GameState.GameCountDownToStart)
+        && !GameManager.Instance.CheckGameState(GameManager.GameState.GameFinished)) 
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpd * Time.deltaTime);
         }
@@ -25,6 +25,6 @@ public class Tsunami : MonoBehaviour, IDealDmgToPlayer
 
     public void DealDamage()
     {
-        GameManger.Instance.InvokeOnGameFinished();
+        GameManager.Instance.InvokeOnGameFinished();
     }
 }

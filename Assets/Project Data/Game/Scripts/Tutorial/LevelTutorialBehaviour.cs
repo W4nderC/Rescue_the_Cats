@@ -133,7 +133,7 @@ namespace Watermelon
                 TutorialController.EnableTutorial(TutorialStage.UnlockNextLocation);
 
                 // Disable joystick
-                uiGame.Joystick.DisableControl();
+                // uiGame.Joystick.DisableControl();
 
                 tutorialVirtualCamera.LookAt = secondZonePurchaseTransform;
                 tutorialVirtualCamera.Follow = secondZonePurchaseTransform;
@@ -145,7 +145,7 @@ namespace Watermelon
                     CameraController.EnableCamera(CameraType.Main);
 
                     // Enable joystick
-                    uiGame.Joystick.EnableControl();
+                    // uiGame.Joystick.EnableControl();
 
                     // Check if game is rated
                     if (!RateUsController.IsRated())
@@ -237,7 +237,7 @@ namespace Watermelon
                 navigationArrow = NavigationController.RegisterArrow(playerBehavior.transform, soapDispenser.transform, arrowColor, ARROW_DISABLE_DISTANCE, true);
 
                 // Disable joystick
-                uiGame.Joystick.DisableControl();
+                // uiGame.Joystick.DisableControl();
 
                 tutorialVirtualCamera.LookAt = soapDispenser.transform;
                 tutorialVirtualCamera.Follow = soapDispenser.transform;
@@ -249,7 +249,7 @@ namespace Watermelon
                     CameraController.EnableCamera(CameraType.Main);
 
                     // Enable joystick
-                    uiGame.Joystick.EnableControl();
+                    // uiGame.Joystick.EnableControl();
                 });
             }
             else if (TutorialController.CurrentTutorialStage == TutorialStage.PickSecondAnimal)
@@ -371,7 +371,7 @@ namespace Watermelon
                     navigationArrow = NavigationController.RegisterArrow(playerBehavior.transform, spawnedAnimal.transform, arrowColor, ARROW_DISABLE_DISTANCE, true);
 
                     // Disable joystick
-                    uiGame.Joystick.DisableControl();
+                    // uiGame.Joystick.DisableControl();
 
                     tutorialVirtualCamera.LookAt = spawnedVisitor.transform;
                     tutorialVirtualCamera.Follow = spawnedVisitor.transform;
@@ -383,7 +383,7 @@ namespace Watermelon
                         CameraController.EnableCamera(CameraType.Main);
 
                         // Enable joystick
-                        uiGame.Joystick.EnableControl();
+                        // uiGame.Joystick.EnableControl();
                     });
                 });
 

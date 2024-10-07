@@ -27,7 +27,7 @@ namespace Watermelon
 
         public override void Initialise()
         {
-            joystick.Initialise(canvas);
+            // joystick.Initialise(canvas);
 
             currenciesUIController.Initialise(CurrenciesController.Currencies);
 

@@ -4,18 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionEnter(Collision other)
     {
         IDealDmgToPlayer dealDmgToPlayer = other.gameObject.GetComponent<IDealDmgToPlayer>();
@@ -23,6 +11,15 @@ public class Player : MonoBehaviour
         {
             dealDmgToPlayer.DealDamage();
         }
-        
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        IEndOfPhase endOfPhase = other.gameObject.GetComponent<IEndOfPhase>();
+        if (endOfPhase != null)
+        {
+            endOfPhase.EndGamePhase();
+        } 
     }
 }
