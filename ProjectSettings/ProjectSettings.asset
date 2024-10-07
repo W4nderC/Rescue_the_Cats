@@ -827,7 +827,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: 
+    Android: VISTA
     Standalone: 
     iPhone: MODULE_ADMOB;MODULE_IAP;MODULE_FIREBASE;MOREMOUNTAINS_NICEVIBRATIONS
   additionalCompilerArguments: {}
