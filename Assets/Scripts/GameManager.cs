@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnEndGamePhase1;
     public event EventHandler OnGameFinished;
     public event EventHandler OnSpeedUp;
+    public event EventHandler OnEndLevelSelect;
 
     [HideInInspector] public float countDownToStartTimer = 3f; 
     private float timeConsumed;
 
     public enum GameState
     {
+        LevelSelect,
         GameCountDownToStart,
         GamePhase1,
         GamePhase2,
@@ -63,6 +65,8 @@ public class GameManager : MonoBehaviour
     {
         switch(gameState)
         {
+            case GameState.LevelSelect:
+                break;
             case GameState.GameCountDownToStart:
                 countDownToStartTimer -= Time.deltaTime;
                 if(countDownToStartTimer <= 0) 
@@ -100,6 +104,13 @@ public class GameManager : MonoBehaviour
     {
         OnEndGamePhase1?.Invoke(this, EventArgs.Empty);
         SetGameState(GameState.GamePhase2);
+        // print("Time need to end phase 1: "+timeConsumed);
+    }
+
+    public void InvokeOnEndLevelSelect()
+    {
+        OnEndLevelSelect?.Invoke(this, EventArgs.Empty);
+        SetGameState(GameState.GameCountDownToStart);
         // print("Time need to end phase 1: "+timeConsumed);
     }
 

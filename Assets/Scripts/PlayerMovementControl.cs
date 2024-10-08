@@ -7,6 +7,7 @@ public class PlayerMovementControl : MonoBehaviour
 {
     [SerializeField] private PlayerInputAction playerInputAction;
     [SerializeField] private float moveSpd = 10f;
+
     private float spdUpValue = .7f;
      
     private void Awake() 
@@ -34,7 +35,7 @@ public class PlayerMovementControl : MonoBehaviour
             Vector3 moveDir = new Vector3(inputVector.x, 0, inputVector.y);
             transform.position += moveDir * Time.deltaTime * moveSpd;
         }
-        print("current spd: "+moveSpd);
+
     }
 
     private bool IsGamePlaying()

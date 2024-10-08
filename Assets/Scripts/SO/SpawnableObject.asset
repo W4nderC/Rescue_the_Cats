@@ -18,7 +18,11 @@ MonoBehaviour:
   - {fileID: 6824056633908700397, guid: 19ac3258c265b3f49ac991aaad2f4ed3, type: 3}
   - {fileID: 7329176190649520718, guid: a8d05bb2f1c3e854c8b70b9c73ddb86d, type: 3}
   - {fileID: 2921632596715241418, guid: 3b817f6cb136f8441b8d6726aebc1aa0, type: 3}
-  trees: []
+  trees:
+  - {fileID: 8800199060111772814, guid: 5370e8202e43bff4b9d4bdca6e624315, type: 3}
+  - {fileID: 4993227503984627757, guid: 0e2c96882afbf9a438cece859507ce3f, type: 3}
+  - {fileID: 6495036483892532957, guid: 8b9f522154bec4f49b23973fe153fed1, type: 3}
+  - {fileID: 5743828424719072249, guid: 4d2ddceca7cf22a40b5e057ba049dc66, type: 3}
   vehicles:
   - {fileID: 6844842462518608715, guid: e60560ca81fd1074f97a9525a0640ee9, type: 3}
   - {fileID: 8118633910152834523, guid: e1f99bd55f385f642be89a0fdd2baa38, type: 3}

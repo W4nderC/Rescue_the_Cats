@@ -22,13 +22,17 @@ public class GameCountDownToStarttUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        countDownTxt.text = Convert.ToInt32(GameManager.Instance.countDownToStartTimer).ToString();
-        // print("touchCount: "+Input.touchCount);
-
-        if (Input.touchCount > 0)
+        if(GameManager.Instance.CheckGameState(GameManager.GameState.GameCountDownToStart)) 
         {
-            GameManager.Instance.InvokeOnSpeedUpEvt();        
+            countDownTxt.text = Convert.ToInt32(GameManager.Instance.countDownToStartTimer).ToString();
+            // print("touchCount: "+Input.touchCount);
+
+            if (Input.touchCount > 0)
+            {
+                GameManager.Instance.InvokeOnSpeedUpEvt();        
+            }
         }
+
     }
 
     private void Hide()
@@ -39,5 +43,10 @@ public class GameCountDownToStarttUI : MonoBehaviour
     private void Show()
     {
         gameObject.SetActive(true);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnStartGamePhase1 -= GameManager_OnStartGamePhase1;
     }
 }

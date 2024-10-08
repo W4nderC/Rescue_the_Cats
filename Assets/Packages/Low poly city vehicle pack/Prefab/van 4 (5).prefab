@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206571478217262379}
+  serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0.67988145, y: 0.28795618, z: -1.4641615}
   m_LocalScale: {x: -72.06482, y: -72.06482, z: -72.06482}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9072630374033163734}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4081689967745062560
 MeshFilter:
@@ -108,13 +108,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884255762306269966}
+  serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0.67988145, y: 0.28795618, z: -1.4641615}
   m_LocalScale: {x: 72.06482, y: 72.06482, z: 72.06482}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9072630374033163734}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4856374035989836332
 MeshFilter:
@@ -191,13 +191,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5250044488937434173}
+  serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0.67988145, y: 0.28795618, z: 1.6166131}
   m_LocalScale: {x: 72.06482, y: 72.06482, z: 72.06482}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9072630374033163734}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3466260638423947896
 MeshFilter:
@@ -274,13 +274,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6407565509228791083}
+  serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0.67988145, y: 0.28795618, z: 1.6166131}
   m_LocalScale: {x: -72.06482, y: -72.06482, z: -72.06482}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9072630374033163734}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &421222003567386310
 MeshFilter:
@@ -357,13 +357,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7210921461515468615}
+  serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: -0.079659514, z: 0}
   m_LocalScale: {x: 72.06482, y: 72.06482, z: 72.06482}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9072630374033163734}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4164867552621607946
 MeshFilter:
@@ -425,6 +425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9072630374033163734}
   - component: {fileID: 1482391788114163731}
+  - component: {fileID: 1860078193454032342}
   m_Layer: 0
   m_Name: van 4 (5)
   m_TagString: Untagged
@@ -439,10 +440,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8548858955074035564}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2763092197926565900}
   - {fileID: 2873583847306146028}
@@ -450,7 +452,6 @@ Transform:
   - {fileID: 3801133574976236025}
   - {fileID: 4471503336452589065}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!205 &1482391788114163731
 LODGroup:
@@ -491,3 +492,24 @@ LODGroup:
     - renderer: {fileID: 8488734861314017668}
     - renderer: {fileID: 7529632066250866919}
   m_Enabled: 1
+--- !u!65 &1860078193454032342
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8548858955074035564}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5585917, y: 1.9309864, z: 4.635746}
+  m_Center: {x: 0, y: 0.955485, z: -0.014699936}

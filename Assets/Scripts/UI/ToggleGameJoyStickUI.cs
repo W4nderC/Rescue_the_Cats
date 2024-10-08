@@ -43,4 +43,9 @@ public class ToggleGameJoyStickUI : MonoBehaviour
     {
         gameObject.SetActive(true);        
     }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnStartGamePhase1 -= GameManager_OnStartGamePhase1;
+    }
 }
