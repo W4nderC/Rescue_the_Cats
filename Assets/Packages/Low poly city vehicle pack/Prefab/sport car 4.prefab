@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 830221952330604752}
   - component: {fileID: 868969375306663715}
   - component: {fileID: 4668638133949816088}
+  - component: {fileID: -4366767497510185583}
   m_Layer: 0
   m_Name: sport car 4
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5779673585356365066}
@@ -98,6 +99,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.8945316, y: 1.3536528, z: 4.3284907}
   m_Center: {x: 0, y: 0.67609906, z: 0.093613625}
+--- !u!54 &-4366767497510185583
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58083742179523178}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1332970842297047617
 GameObject:
   m_ObjectHideFlags: 0

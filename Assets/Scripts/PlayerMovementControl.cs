@@ -33,9 +33,14 @@ public class PlayerMovementControl : MonoBehaviour
             Vector2 inputVector = GetInputVectorNormalized();
 
             Vector3 moveDir = new Vector3(inputVector.x, 0, inputVector.y);
-            transform.position += moveDir * Time.deltaTime * moveSpd;
-        }
 
+            float moveDistance = Time.deltaTime * moveSpd;
+
+            if(CanMove(moveDir, moveDistance)) 
+            {
+                transform.position += moveDir * moveDistance;
+            }  
+        }
     }
 
     private bool IsGamePlaying()
@@ -50,5 +55,20 @@ public class PlayerMovementControl : MonoBehaviour
         inputVector = inputVector.normalized;
 
         return inputVector;
+    }
+
+    private bool CanMove(Vector3 moveDir, float maxDistance, float playerRadius = .9f)
+    {
+        // return !Physics.Raycast(transform.position, moveDir, playerSize);
+        return !Physics.BoxCast
+        (
+            transform.position, 
+            Vector3.one*playerRadius, 
+            moveDir, Quaternion.identity, maxDistance);
+    }
+
+    public float GetPlayerMoveSpd()
+    {
+        return moveSpd;
     }
 }

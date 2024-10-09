@@ -17,6 +17,8 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private GameObject worldTreeObj;
     [SerializeField] private GameObject worldVehicleObj;
 
+    [SerializeField] private LayerMask layerIsLookingFor;
+
     [SerializeField] private int treeAmount;
 
     private void Awake() 
@@ -64,6 +66,7 @@ public class MapGenerator : MonoBehaviour
             Quaternion.Euler (new Vector3 (0f, RandomAgle(), 0f))
         );
         tree.transform.parent = worldTreeObj.transform;
+        
     }
 
     private void CreateVehicles(Vector3 spawnPos)
@@ -75,6 +78,12 @@ public class MapGenerator : MonoBehaviour
             Quaternion.Euler (new Vector3 (0f, RandomAgle(), 0f))
         );
         vehicle.transform.parent = worldVehicleObj.transform;
+
+        // move to random pos if obj spawn inside another obj
+        if (Physics.CheckSphere(vehicle.transform.position, 30f, layerIsLookingFor))
+        {
+            vehicle.transform.position = RandomPosInSpawnArea(50f, vehicle.transform.position);
+        }
     }
 
     private int RandomNumArray(GameObject[] objArray)
@@ -109,6 +118,15 @@ public class MapGenerator : MonoBehaviour
         for (int i = 0; i < firstLvlTreePosList.Count; i++)
         {
             CreateTrees(firstLvlTreePosList[i]);
+        }
+    }
+
+    public void CreateLevel()
+    {
+        // spawn cats
+        for (int i = 0; i < catsPosList.Count; i++)
+        {
+            CreateCats(catsPosList[i]);
         }
     }
 }

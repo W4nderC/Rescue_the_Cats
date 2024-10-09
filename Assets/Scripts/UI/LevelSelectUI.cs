@@ -19,6 +19,13 @@ public class LevelSelectUI : MonoBehaviour
                     GameManager.Instance.InvokeOnEndLevelSelect();
                 });
             }
+            else 
+            {
+                levelBtn[i].onClick.AddListener(() => {
+                    MapGenerator.Instance.CreateLevel();
+                    GameManager.Instance.InvokeOnEndLevelSelect();
+                });
+            }
         }
 
         GameManager.Instance.OnEndLevelSelect += GameManager_OnEndLevelSelect;

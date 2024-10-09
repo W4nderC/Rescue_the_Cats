@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 5739379523426890839}
   - component: {fileID: 3165505902218566076}
   - component: {fileID: 8241466302601167333}
+  - component: {fileID: -4623013162128229566}
   m_Layer: 0
   m_Name: van 4 (3)
   m_TagString: Untagged
@@ -194,7 +195,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1447436362414868877}
@@ -264,6 +265,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5585917, y: 1.9309864, z: 4.635746}
   m_Center: {x: 0, y: 0.955485, z: -0.014699936}
+--- !u!54 &-4623013162128229566
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966784190783876845}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6222986053271588550
 GameObject:
   m_ObjectHideFlags: 0

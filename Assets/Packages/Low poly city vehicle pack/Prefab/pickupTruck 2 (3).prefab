@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 1644863644192174184}
   - component: {fileID: 6588030269473846585}
   - component: {fileID: -6766630064091229534}
+  - component: {fileID: -2399432538422085111}
   m_Layer: 0
   m_Name: pickupTruck 2 (3)
   m_TagString: Untagged
@@ -194,7 +195,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2495588303772478221}
@@ -272,6 +273,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.5214016, z: 4.1480837}
   m_Center: {x: 0, y: 0.78210145, z: 0.24594383}
+--- !u!54 &-2399432538422085111
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132571425359735506}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2585110308522629507
 GameObject:
   m_ObjectHideFlags: 0
