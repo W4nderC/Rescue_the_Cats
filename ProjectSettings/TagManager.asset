@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Land
@@ -16,8 +16,8 @@ TagManager:
   - Cat
   - Tree
   - Vehicle
-  - 
-  - 
+  - ForbidenZone
+  - Building
   - 
   - 
   - 

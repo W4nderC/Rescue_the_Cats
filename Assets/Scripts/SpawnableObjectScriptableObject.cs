@@ -9,5 +9,6 @@ public class SpawnableObjectScriptableObject : ScriptableObject
     public GameObject[] cats;
     public GameObject[] trees;
     public GameObject[] vehicles;
+    public GameObject[] building;
     // public GameObject map;
 }

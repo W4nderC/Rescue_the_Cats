@@ -8,6 +8,8 @@ public class PlayerMovementControl : MonoBehaviour
     [SerializeField] private PlayerInputAction playerInputAction;
     [SerializeField] private float moveSpd = 10f;
 
+    [SerializeField] private LayerMask layerMask;
+
     private float spdUpValue = .7f;
      
     private void Awake() 
@@ -19,7 +21,9 @@ public class PlayerMovementControl : MonoBehaviour
     void Start()
     {
         GameManager.Instance.OnSpeedUp += GameManager_OnSpeedUp;
+        
     }
+
 
     private void GameManager_OnSpeedUp(object sender, EventArgs e)
     {
@@ -39,6 +43,8 @@ public class PlayerMovementControl : MonoBehaviour
             if(CanMove(moveDir, moveDistance)) 
             {
                 transform.position += moveDir * moveDistance;
+                float rotateSpd = 10f;
+                transform.forward = Vector3.Lerp(transform.forward, moveDir, Time.deltaTime * rotateSpd);
             }  
         }
     }
@@ -64,11 +70,19 @@ public class PlayerMovementControl : MonoBehaviour
         (
             transform.position, 
             Vector3.one*playerRadius, 
-            moveDir, Quaternion.identity, maxDistance);
+            moveDir, Quaternion.identity, maxDistance, layerMask);
     }
 
     public float GetPlayerMoveSpd()
     {
         return moveSpd;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnSpeedUp -= GameManager_OnSpeedUp;
+        
+
+        playerInputAction.Dispose();
     }
 }

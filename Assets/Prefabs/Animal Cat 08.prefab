@@ -586,6 +586,7 @@ GameObject:
   - component: {fileID: 6448886978974218409}
   - component: {fileID: 374305203178633017}
   - component: {fileID: 498428899203524349}
+  - component: {fileID: -5302485039553329161}
   m_Layer: 8
   m_Name: Animal Cat 08
   m_TagString: Untagged
@@ -603,7 +604,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 70978840381484700}
@@ -671,7 +672,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!195 &498428899203524349
 NavMeshAgent:
@@ -695,6 +696,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 3
+--- !u!114 &-5302485039553329161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6824056633908700397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877e2f07471e73a4f896bcee3fa03192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  isFollow: 0
 --- !u!1 &7022439816683754365
 GameObject:
   m_ObjectHideFlags: 0

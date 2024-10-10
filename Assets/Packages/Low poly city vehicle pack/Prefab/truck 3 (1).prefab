@@ -698,7 +698,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 9, y: 9, z: 9}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2677092504902624219}
@@ -761,7 +761,7 @@ LODGroup:
     - renderer: {fileID: 5129072007916306364}
     - renderer: {fileID: 5623671223432679354}
     - renderer: {fileID: 2384794866472886934}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!65 &-4530148012869546346
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -806,8 +806,8 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
+  m_IsKinematic: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &8511276697635531160
