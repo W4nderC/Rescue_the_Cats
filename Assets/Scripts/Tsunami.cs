@@ -17,7 +17,7 @@ public class Tsunami : MonoBehaviour, IDealDmgToPlayer
         if(IsGamePlaying()) 
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpd * Time.deltaTime);
-            print("Tsunami speed "+ moveSpd);
+            // print("Tsunami speed "+ moveSpd);
         }
         
     }
