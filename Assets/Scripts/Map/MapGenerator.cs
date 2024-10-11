@@ -17,11 +17,6 @@ public class MapGenerator : MonoBehaviour
     public SpawnableObjectScriptableObject spawnObj;
 
     [SerializeField] private int treeAmount;
-    
-    public int rePositionBuildingAttempt;
-    public int rePositionTreeAttempt;
-
-    private bool IsOutsideTheRoad = true;
 
 
     private void Awake() 
@@ -80,7 +75,7 @@ public class MapGenerator : MonoBehaviour
         // spawn obj outside the road
 
         float xAxis = RandomFloatNum(-300, 400);
-        if (xAxis >= min && xAxis <= min) // if x axis in side the road
+        if (xAxis >= min && xAxis <= max) // if x axis in side the road
         {
             if (xAxis <=50)
             {
@@ -88,7 +83,7 @@ public class MapGenerator : MonoBehaviour
                 (
                     xAxis - 170,
                     .5f, 
-                    RandomFloatNum(50, 1450)
+                    RandomFloatNum(150, 1200)
                 );
             } 
             else 
@@ -97,7 +92,7 @@ public class MapGenerator : MonoBehaviour
                 (
                     xAxis + 170,
                     .5f, 
-                    RandomFloatNum(50, 1450)
+                    RandomFloatNum(150, 1200)
                 );
             }
         }
@@ -106,7 +101,7 @@ public class MapGenerator : MonoBehaviour
             (
                 xAxis,
                 .5f, 
-                RandomFloatNum(50, 1500)
+                RandomFloatNum(150, 1200)
             );
         } 
     }
@@ -114,11 +109,9 @@ public class MapGenerator : MonoBehaviour
     // inside the road
     private Vector3 RandomInsidePos(float xMix, float xMax, float zMin = 90, float zMax = 1500)
     {   
-            float xAxis = RandomFloatNum(xMix, xMax);
-
             return new Vector3
             (
-                xAxis,
+                RandomFloatNum(xMix, xMax),
                 .5f, 
                 RandomFloatNum(zMin, zMax)
             );
@@ -172,9 +165,9 @@ public class MapGenerator : MonoBehaviour
         }
 
         // spawn vehicles
-        for (int i = 0; i < vehicleAmount; i++)
+        for (int i = 0; i < level + vehicleAmount; i++)
         {
-            vehicleSpawner.CreateVehicles(RandomInsidePos(-20, 120, 90, 370), spawnObj.vehicles, 1);
+            vehicleSpawner.CreateVehicles(RandomInsidePos(0, 100, 90, 370), spawnObj.vehicles, 1);
         }
     }
 

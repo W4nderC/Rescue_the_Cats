@@ -1117,8 +1117,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 200, y: 1, z: 1550}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 220, y: 30, z: 1550}
+  m_Center: {x: -10, y: 12, z: 0}
 --- !u!1 &320250673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,8 +1170,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 200, y: 1, z: 1550}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 220, y: 30, z: 1550}
+  m_Center: {x: 10, y: 12, z: 0}
 --- !u!1 &376817690
 GameObject:
   m_ObjectHideFlags: 0
@@ -3159,8 +3159,6 @@ MonoBehaviour:
   terrainSpawner: {fileID: 885683508}
   spawnObj: {fileID: 11400000, guid: 650006e26d6b19e41bbddc6819b4472a, type: 2}
   treeAmount: 3
-  rePositionBuildingAttempt: 100
-  rePositionTreeAttempt: 100
 --- !u!4 &885683503
 Transform:
   m_ObjectHideFlags: 0
@@ -3228,7 +3226,7 @@ MonoBehaviour:
   vehicleLayerMask:
     serializedVersion: 2
     m_Bits: 3336
-  rePositionAttempt: 50
+  rePositionAttempt: 70
 --- !u!114 &885683506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7910,8 +7908,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 4.22, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 10, y: 30, z: 10}
+  m_Center: {x: 0, y: 12, z: 0}
 --- !u!1 &2082790627
 GameObject:
   m_ObjectHideFlags: 0
