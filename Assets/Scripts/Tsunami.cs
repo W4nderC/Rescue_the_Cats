@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tsunami : MonoBehaviour, IDealDmgToPlayer
 {
     private Vector3 targetPos;
-    private float moveSpd = 10f;
+    public static float moveSpd = 10f;
 
     private void Start()
     {
@@ -17,6 +17,7 @@ public class Tsunami : MonoBehaviour, IDealDmgToPlayer
         if(IsGamePlaying()) 
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpd * Time.deltaTime);
+            print("Tsunami speed "+ moveSpd);
         }
         
     }
@@ -27,8 +28,13 @@ public class Tsunami : MonoBehaviour, IDealDmgToPlayer
         || GameManager.Instance.CheckGameState(GameManager.GameState.GamePhase2);
     }
 
+    public static void IncreaseTsunamiSpd (int level) {
+        moveSpd = 20 + level*2;
+        
+    }
+
     public void DealDamage()
     {
-        GameManager.Instance.InvokeOnGameFinished();
+        GameManager.Instance.InvokeOnGameOver();
     }
 }

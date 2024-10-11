@@ -17,7 +17,7 @@ public class MapGenerator : MonoBehaviour
     public SpawnableObjectScriptableObject spawnObj;
 
     [SerializeField] private int treeAmount;
-    public int rePositionVehicleAttempt;
+    
     public int rePositionBuildingAttempt;
     public int rePositionTreeAttempt;
 
@@ -34,57 +34,6 @@ public class MapGenerator : MonoBehaviour
         {
             Instance = this;
         }
-    }
-
-    public void RespawnNewPos(int loopAttempt, GameObject obj, LayerMask layerMask, float respawnRadius = 30f)
-    {
-        for (int i = 0; i < loopAttempt; i++)
-        {
-            // if this obj spawn in other obj pos
-            if (Physics.CheckSphere(obj.transform.position, respawnRadius, layerMask))
-            {
-                if (i == rePositionVehicleAttempt - 1) //if can't find another empty pos at the end of the loop 
-                {
-                    Destroy(obj.gameObject);
-                }
-                else
-                {
-                    // move this obj to another random pos
-                    obj.transform.position = RandomPosInSpawnArea(respawnRadius, obj.transform.position);
-                }
-            }
-            else
-            {
-                return;
-            }
-        }
-    }
-
-    // random pos inside circle
-    public Vector3 RandomPosInSpawnArea(float radius, Vector3 spawnPos)
-    {
-        Vector3 point = (Random.insideUnitSphere * radius);
-        return new Vector3
-        (
-            spawnPos.x + point.x, 
-            spawnPos.y, 
-            spawnPos.z + point.z
-        );
-    }
-
-    public int RandomNumArray(GameObject[] objArray)
-    {
-        return Random.Range(0, objArray.Length);
-    }
-
-    // public int RandomNumArray(GameObject[] objArray, int level)
-    // {
-    //     return Random.Range(0, 6 * level);
-    // }
-
-    public float RandomAgle()
-    {
-        return Random.Range (0f, 360f);
     }
 
     public float RandomFloatNum(float minValue, float maxValue)
@@ -125,87 +74,107 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    private Vector3 RandomOtherPos(bool outsideTheRoad)
+    // outside the road
+    private Vector3 RandomOutsidePos(float min, float max)
     {   
-        
-        if(outsideTheRoad) // spawn obj outside the road
+        // spawn obj outside the road
+
+        float xAxis = RandomFloatNum(-300, 400);
+        if (xAxis >= min && xAxis <= min) // if x axis in side the road
         {
-            float xAxis = RandomFloatNum(-200, 300);
-            if (xAxis >= -20 && xAxis <= 120) // if x axis in side the road
+            if (xAxis <=50)
             {
-                if (xAxis <=50)
-                {
-                    return new Vector3 // move to the leftside of the road
-                    (
-                        xAxis + RandomFloatNum(-81, -101),
-                        .5f, 
-                        RandomFloatNum(10, 1540)
-                    );
-                } 
-                else 
-                {
-                    return new Vector3 // move to the rightside of the road
-                    (
-                        xAxis + RandomFloatNum(81, 101),
-                        .5f, 
-                        RandomFloatNum(10, 1540)
-                    );
-                }
-            }
-            else{
-                return new Vector3
+                return new Vector3 // move to the leftside of the road
                 (
-                    xAxis,
+                    xAxis - 170,
                     .5f, 
-                    RandomFloatNum(10, 1540)
+                    RandomFloatNum(50, 1450)
                 );
             } 
+            else 
+            {
+                return new Vector3 // move to the rightside of the road
+                (
+                    xAxis + 170,
+                    .5f, 
+                    RandomFloatNum(50, 1450)
+                );
+            }
         }
-        else // spawn obj inside the road
-        {
-            float xAxis = RandomFloatNum(0, 100);
+        else{
+            return new Vector3
+            (
+                xAxis,
+                .5f, 
+                RandomFloatNum(50, 1500)
+            );
+        } 
+    }
+
+    // inside the road
+    private Vector3 RandomInsidePos(float xMix, float xMax, float zMin = 90, float zMax = 1500)
+    {   
+            float xAxis = RandomFloatNum(xMix, xMax);
 
             return new Vector3
             (
                 xAxis,
                 .5f, 
-                RandomFloatNum(90, 1540)
+                RandomFloatNum(zMin, zMax)
             );
-        }
     }
 
     public void CreateLevel(int level)
     {
-        if (level < 4 && level >= 2)
-        {
-            terrainSpawner.CreateTerrain(0); // map 1 
-        }
-        else if (level < 7 && level >= 4)
-        {
-            terrainSpawner.CreateTerrain(1); // map 2 
-        }
-        else
-        {
-            terrainSpawner.CreateTerrain(2); // map 3 
-        }
-
-
         // change cats pos randomly
         RandomCatPos();
 
-        // spawn cats
+        if (level < 4 && level >= 2)
+        {
+            CreateMap(level, 0, level, treeAmount, 1);
+        }
+        else if (level < 7 && level >= 4)
+        {
+            CreateMap(level, 1, 7, treeAmount, 2);
+        }
+        else
+        {
+            CreateMap(level, 2, 9, treeAmount, 3);
+
+        }
+    }
+
+    private void CreateMap
+    (
+        int level, 
+        int terrainIndex, 
+        int buildingSpawnNum, 
+        int treeAmount, 
+        int vehicleAmount
+    )
+    {
+        terrainSpawner.CreateTerrain(terrainIndex); // map 1 
+        // spawn cats and vehicle surround it
         for (int i = 0; i < 5; i++)
         {
             catSpawner.CreateCats(catSpawner.catsPosList[i], spawnObj.cats);
+            vehicleSpawner.CreateVehicles(catSpawner.catsPosList[i], spawnObj.vehicles, 1);
+        }
+
+        // spawn building
+        for(int i = 0; i < buildingSpawnNum; i++) {
+            buildingSpawner.CreateBuildings(RandomOutsidePos(-150, 250), spawnObj.building, level);
         }
 
         // spawn trees
         for(int i = 0; i < treeAmount + level; i++) {
-            treeSpawner.CreateTrees(RandomOtherPos(IsOutsideTheRoad), spawnObj.trees);
+            treeSpawner.CreateTrees(RandomOutsidePos(-20, 120), spawnObj.trees);
         }
 
-        for(int i = 0; i < level; i++) {
-            buildingSpawner.CreateBuildings(RandomOtherPos(IsOutsideTheRoad), spawnObj.building, level);
+        // spawn vehicles
+        for (int i = 0; i < vehicleAmount; i++)
+        {
+            vehicleSpawner.CreateVehicles(RandomInsidePos(-20, 120, 90, 370), spawnObj.vehicles, 1);
         }
     }
 

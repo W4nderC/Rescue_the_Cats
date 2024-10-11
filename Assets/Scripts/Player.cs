@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private PlayerMovementControl playerMovementControl;
+
     private void Start()
     {
         FollowPlayer.OnAnyCatTouched += FollowPlayer_OnAnyCatTouched;
@@ -37,7 +39,9 @@ public class Player : MonoBehaviour
         if (followPlayer != null)
         {
             followPlayer.InvokeOnAnyCatTouched();
-            followPlayer.player = gameObject.transform;
+            followPlayer.player = this;
+            followPlayer.followSpd = playerMovementControl.moveSpd;
+            followPlayer.IncreaseCatNum();
         }
     }
 

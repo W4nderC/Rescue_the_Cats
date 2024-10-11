@@ -12,8 +12,11 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnGameFinished;
     public event EventHandler OnSpeedUp;
     public event EventHandler OnEndLevelSelect;
+    public event EventHandler OnGameOver;
 
     [HideInInspector] public float countDownToStartTimer = 3f; 
+    private float phase2Timer = 3f;
+    public int savedCatNum;
     private float timeConsumed;
 
     public enum GameState
@@ -22,7 +25,8 @@ public class GameManager : MonoBehaviour
         GameCountDownToStart,
         GamePhase1,
         GamePhase2,
-        GameFinished
+        GameFinished,
+        GameOver
     }
 
     public GameState gameState;
@@ -52,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     private void GameManager_OnGameFinished(object sender, EventArgs e)
     {
-        print("Game finished ");
+        print("Game Win ");
     }
 
     private void Update()
@@ -75,11 +79,24 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case GameState.GamePhase1:
-            timeConsumed += Time.deltaTime;
+                // timeConsumed += Time.deltaTime;
+                if(savedCatNum >= 5) 
+                {
+                    InvokeOnEndGamePhase1();
+                    print("End of phase 1, enter phase 2");
+                }
                 break;
             case GameState.GamePhase2:
+                phase2Timer -= Time.deltaTime;
+                if(phase2Timer <= 0) 
+                {
+                    // Win
+                    InvokeOnGameFinished();
+                }
                 break;
             case GameState.GameFinished:
+                break;
+            case GameState.GameOver:
                 break;
         }   
     }
@@ -117,5 +134,11 @@ public class GameManager : MonoBehaviour
     public void InvokeOnSpeedUpEvt () 
     {
         OnSpeedUp?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void InvokeOnGameOver () 
+    {
+        OnGameOver?.Invoke(this, EventArgs.Empty);
+        SetGameState(GameState.GameOver);
     }
 }

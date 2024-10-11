@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class PlayerMovementControl : MonoBehaviour
 {
+    [SerializeField] private PlayerSpeedUI playerSpdUI;
     [SerializeField] private PlayerInputAction playerInputAction;
-    [SerializeField] private float moveSpd = 10f;
+    public float moveSpd = 10f;
 
     [SerializeField] private LayerMask layerMask;
 
@@ -24,7 +25,6 @@ public class PlayerMovementControl : MonoBehaviour
         
     }
 
-
     private void GameManager_OnSpeedUp(object sender, EventArgs e)
     {
         moveSpd += spdUpValue;
@@ -32,7 +32,7 @@ public class PlayerMovementControl : MonoBehaviour
 
     void Update()
     {
-        if (IsGamePlaying())
+        if (IsGamePlayingPhase1())
         {
             Vector2 inputVector = GetInputVectorNormalized();
 
@@ -47,12 +47,24 @@ public class PlayerMovementControl : MonoBehaviour
                 transform.forward = Vector3.Lerp(transform.forward, moveDir, Time.deltaTime * rotateSpd);
             }  
         }
+        if(IsGamePlayingPhase2())
+        {
+            Vector3 moveDir = Vector3.forward;
+            float moveDistance = Time.deltaTime * moveSpd;
+            transform.position += moveDir * moveDistance;
+        }
+
+        playerSpdUI.playerSpdTxt.text = "Speed: "+ Math.Round(moveSpd, 2).ToString();
     }
 
-    private bool IsGamePlaying()
+    private bool IsGamePlayingPhase1()
     {
-        return GameManager.Instance.CheckGameState(GameManager.GameState.GamePhase1) ||
-        GameManager.Instance.CheckGameState(GameManager.GameState.GamePhase2);
+        return GameManager.Instance.CheckGameState(GameManager.GameState.GamePhase1);
+    }
+
+    private bool IsGamePlayingPhase2()
+    {
+        return GameManager.Instance.CheckGameState(GameManager.GameState.GamePhase2);
     }
 
     private Vector2 GetInputVectorNormalized()

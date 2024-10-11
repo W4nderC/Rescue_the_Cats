@@ -13,17 +13,34 @@ public class CatSpawner : MonoBehaviour
 
     public void CreateCats(Vector3 spawnPos, GameObject[] spawnObj) {
 
-        spawnPos = mapGenerator.RandomPosInSpawnArea(catSpawnRadius, spawnPos);
+        spawnPos = RandomPosInSpawnArea(catSpawnRadius, spawnPos);
 
         GameObject cat = Instantiate 
                     (   
-                        spawnObj[mapGenerator.RandomNumArray(spawnObj)], spawnPos, 
-                        Quaternion.Euler (new Vector3 (0f, mapGenerator.RandomAgle(), 0f))
+                        spawnObj[Random.Range(0, spawnObj.Length)], 
+                        spawnPos, 
+                        Quaternion.Euler (new Vector3 (0f, RandomAgle(), 0f))
                     );
 
         cat.transform.parent = worldCatObj.transform;
 
         // spawn vehicle surround a cat
         // vehicleSpawner.CreateVehicles(cat.transform.position, mapGenerator.spawnObj.vehicles, 1);
+    }
+
+    private Vector3 RandomPosInSpawnArea(float radius, Vector3 spawnPos)
+    {
+        Vector3 point = (Random.insideUnitSphere * radius);
+        return new Vector3
+        (
+            spawnPos.x + point.x, 
+            spawnPos.y, 
+            spawnPos.z + point.z
+        );
+    }
+
+    private float RandomAgle()
+    {
+        return Random.Range (0f, 360f);
     }
 }
